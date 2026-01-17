@@ -95,6 +95,9 @@ def generate_graph(data):
             if station_code == "BP6":
                 adjacent_stations.append(Node("BP13", data["BP13"]["name"]))
 
+            if station_code == "BP13":
+                adjacent_stations.append(Node("BP6", data["BP6"]["name"]))  
+
         AL[station_code] = adjacent_stations
 
     return AL
