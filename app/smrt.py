@@ -27,7 +27,8 @@ def generate_graph(data):
         # PTC is connected to PE and PW
 
         if station_info[number] > 1:
-            prev_station_code = 
+            pass
+            # prev_station_code = station
 
         # WARNING: PLACEHOLDER
         prev_node = Node(station_code, station_name)
