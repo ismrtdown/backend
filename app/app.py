@@ -39,7 +39,7 @@ async def get_graph_data():
         response = supabase.table("down_reports").select("station_code", "created_at").gte("created_at",yest.isoformat()).lte("created_at", now.isoformat()).execute()
         for report in response.data:
             index = math.floor((datetime.fromisoformat(report["created_at"]) - yest).total_seconds() / 60 / 15)
-            res[index]["no."] += 1
+            res[index]["no"] += 1
         return res
     except APIError:
         return None
