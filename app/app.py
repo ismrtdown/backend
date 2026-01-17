@@ -33,7 +33,7 @@ async def get_graph_data():
         for i in range(96):
             data = {
                 "time": yest + timedelta(minutes=15) * i,
-                "no.": 0
+                "no": 0
             }
             res.append(data)
         response = supabase.table("down_reports").select("station_code", "created_at").gte("created_at",yest.isoformat()).lte("created_at", now.isoformat()).execute()
