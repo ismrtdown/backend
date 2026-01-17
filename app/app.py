@@ -5,6 +5,7 @@ from flask import Flask, request
 from supabase import create_client, Client
 from postgrest.exceptions import APIError
 from helper import get_mrt_lines
+from smrt import get_range_of_breakdowns 
 load_dotenv()
 
 SUPABASE_URL = os.environ["SUPABASE_URL"]
@@ -93,3 +94,9 @@ def report():
 @app.get("/")
 def root():
     return {"ping": "pong"}
+
+@app.get("/range-delayed")
+def range_delayed():
+    report_data = report_get()
+    return get_range_of_breakdowns(stations, report_data)
+
