@@ -67,7 +67,7 @@ def report_get():
                 no_of_reports[report["station_code"]][1] += 1
         res = {}
         for station in no_of_reports.keys():
-            print(station)
+            #print(station)
             station_reports = no_of_reports[station]
             if station_reports[0] > THRESHOLD:
                 res[station] = 2

@@ -1,4 +1,4 @@
-import app
+import json
 
 AL = {}
 OFFICIALLY_DELAYED_THRESHOLD = 10
@@ -10,6 +10,19 @@ class Node:
     def __init__(self, station_code, station_name):
         self.station_code = station_code
         self.station_name = station_name
+
+    def __str__(self):
+        return f"{self.station_name} ({self.station_code})"
+
+    def __repr__(self):
+        return f"{self.station_name} ({self.station_code})"
+
+    def toJSON(self):
+        return json.dumps(
+            self,
+            default=lambda o: o.__dict__,
+            sort_keys=True,
+            indent=4)
 
     def __eq__(self, other):
         return self.station_code == other.station_code and self.station_name == other.station_name
@@ -26,15 +39,20 @@ def generate_graph(data):
         # STC is connected to SE and SW
         # PTC is connected to PE and PW
 
-        if station_info[number] > 1:
-            pass
-            # prev_station_code = station
+        adjacent_stations = []
+        number = station_info["number"]
 
-        # WARNING: PLACEHOLDER
-        prev_node = Node(station_code, station_name)
-        next_node = Node(station_code, station_name)
+        prev_station_code = station_info["line"] + str(number - 1)
+        if prev_station_code in data:
+            prev_station_name = data[prev_station_code]["name"]
+            adjacent_stations.append(Node(prev_station_code, prev_station_name))
 
-        AL[station_code] = [prev_node, next_node] 
+        next_station_code = station_info["line"] + str(number + 1)
+        if next_station_code in data:
+            next_station_name = data[next_station_code]["name"]
+            adjacent_stations.append(Node(next_station_code, next_station_name))
+
+        AL[station_code] = adjacent_stations
 
     return AL
 
