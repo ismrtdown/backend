@@ -1,7 +1,7 @@
 import os
 from datetime import datetime, timezone, timedelta
 from dotenv import load_dotenv
-from flask import Flask, request, jsonify, Response
+from flask import Flask, request
 from supabase import create_client, Client
 from postgrest.exceptions import APIError
 from helper import get_mrt_lines
@@ -81,14 +81,6 @@ def report_get():
         }
         print(e)
         return error, 500
-
-@app.route("/report", methods = ["GET", "POST"])
-def report():
-    print(request.method)
-    if request.method == "POST":
-        return report_post(request.get_json())
-    else:
-        return report_get()
 
 @app.route("/report", methods = ["GET", "POST"])
 def report():
