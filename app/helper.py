@@ -10,5 +10,3 @@ def get_mrt_lines():
                 for line in line_members[lines]:
                     station_names[line["code"]] =  data[station]["name"]
     return station_names
-
-print(get_mrt_lines())
