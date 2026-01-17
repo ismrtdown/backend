@@ -7,6 +7,8 @@ from supabase import create_client, Client
 from postgrest.exceptions import APIError
 from helper import get_mrt_lines
 from smrt import get_range_of_breakdowns 
+from flask_cors import CORS
+
 load_dotenv()
 
 SUPABASE_URL = os.environ["SUPABASE_URL"]
@@ -20,6 +22,8 @@ app = Flask("sad")
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 cache = []
 prev_record = datetime.now(tz=timezone.utc) - timedelta(days=1)
+CORS(app, resources={r"*": {"origins": ["http://localhost:3000", "https://ismrtdown.github.io"]}})
+
 
 async def get_graph_data():
     try:
