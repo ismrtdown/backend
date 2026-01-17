@@ -18,7 +18,7 @@ def get_mrt_lines():
                         number = "0"
                     station_names[line["code"]] =  {
                         "name": data[station]["name"],
-                        "line": lines,
+                        "line": line["code"][:2],
                         "number": int(number)
                     }
                     station_names
