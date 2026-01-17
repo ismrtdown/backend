@@ -83,6 +83,7 @@ def generate_graph(data):
 # Rinse and repeat as needed
 # Report the final range
 # O(N) where N is the number of stations on that line lol, coz just go to the end of the line worst case (WE GOT VISITED ARRAY)
+
 def check_adjacent_stations(current_station_code, remaining_station_count, furthest_station, data, visited):
     if remaining_station_count == 0:
         return furthest_station
@@ -117,6 +118,5 @@ def get_range_of_breakdowns(station_data, report_data):
 
     # TODO: Merge Intervals
 
-    print(ranges)
-    return station_data
+    return ranges
 
