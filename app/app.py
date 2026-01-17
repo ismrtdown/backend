@@ -5,6 +5,8 @@ from flask import Flask, request
 from supabase import create_client, Client
 from postgrest.exceptions import APIError
 from helper import get_mrt_lines
+from flask_cors import CORS
+
 load_dotenv()
 
 SUPABASE_URL = os.environ["SUPABASE_URL"]
@@ -16,6 +18,8 @@ mrt_station_codes = stations.keys()
 
 app = Flask("sad")
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+CORS(app, resources={r"*": {"origins": ["http://localhost:3000", "https://ismrtdown.github.io"]}})
+
 
 def report_post(data):
     if not "station_code" in data:
