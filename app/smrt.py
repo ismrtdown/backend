@@ -8,52 +8,52 @@ MARGIN = 3
 # FOR TESTING ONLY
 FAKE_REPORT_DATA = {"BP1":0,"BP10":0,"BP11":0,"BP12":0,"BP13":0,"BP14":0,"BP2":0,"BP3":0,"BP4":0,"BP5":0,"BP6":0,"BP7":0,"BP8":0,"BP9":0,"CC1":0,"CC10":0,"CC11":0,"CC12":0,"CC13":0,"CC14":0,"CC15":0,"CC16":0,"CC17":0,"CC18":0,"CC19":0,"CC2":0,"CC20":0,"CC21":0,"CC22":0,"CC23":0,"CC24":0,"CC25":0,"CC26":0,"CC27":0,"CC28":0,"CC29":0,"CC3":10,"CC30":0,"CC31":0,"CC32":0,"CC4":10,"CC5":0,"CC6":0,"CC7":0,"CC8":0,"CC9":0,"CE1":10,"CE2":10,"CG":10,"CG1":0,"CG2":0,"CP1":0,"CP2":0,"CP3":0,"CP4":0,"CR1":0,"CR10":0,"CR11":0,"CR12":0,"CR13":0,"CR14":0,"CR15":0,"CR16":0,"CR17":0,"CR18":0,"CR19":0,"CR2":0,"CR21":0,"CR3":0,"CR4":0,"CR5":0,"CR6":0,"CR7":0,"CR8":0,"CR9":0,"DE1":0,"DE2":0,"DT1":0,"DT10":0,"DT11":0,"DT12":0,"DT13":0,"DT14":0,"DT15":0,"DT16":0,"DT17":0,"DT18":0,"DT19":0,"DT2":0,"DT20":0,"DT21":0,"DT22":0,"DT23":0,"DT24":0,"DT25":0,"DT26":0,"DT27":0,"DT28":0,"DT29":0,"DT3":0,"DT30":0,"DT31":0,"DT32":0,"DT33":0,"DT34":0,"DT35":0,"DT36":0,"DT37":0,"DT4":0,"DT5":0,"DT6":0,"DT7":0,"DT8":0,"DT9":0,"EW1":0,"EW10":0,"EW11":0,"EW12":0,"EW13":0,"EW14":0,"EW15":0,"EW16":0,"EW17":0,"EW18":0,"EW19":0,"EW2":0,"EW20":0,"EW21":0,"EW22":0,"EW23":0,"EW24":0,"EW25":0,"EW26":0,"EW27":0,"EW28":0,"EW29":0,"EW3":0,"EW30":0,"EW31":0,"EW32":0,"EW33":0,"EW4":0,"EW5":0,"EW6":0,"EW7":0,"EW8":0,"EW9":0,"JE1":0,"JE2":0,"JE3":0,"JE4":0,"JE5":0,"JE6":0,"JE7":0,"JS1":0,"JS10":0,"JS11":0,"JS12":0,"JS2":0,"JS3":0,"JS4":0,"JS5":0,"JS6":0,"JS7":0,"JS8":0,"JS9":0,"JW1":0,"JW2":0,"JW3":0,"JW4":0,"JW5":0,"NE1":0,"NE10":0,"NE11":0,"NE12":0,"NE13":0,"NE14":0,"NE15":0,"NE16":0,"NE17":0,"NE18":0,"NE3":0,"NE4":0,"NE5":0,"NE6":0,"NE7":0,"NE8":0,"NE9":0,"NS1":0,"NS10":0,"NS11":0,"NS12":0,"NS13":0,"NS14":0,"NS15":0,"NS16":0,"NS17":0,"NS18":0,"NS19":0,"NS2":0,"NS20":0,"NS21":0,"NS22":0,"NS23":0,"NS24":0,"NS25":0,"NS26":0,"NS27":0,"NS28":0,"NS3":0,"NS3A":0,"NS4":0,"NS5":0,"NS6":0,"NS7":0,"NS8":0,"NS9":0,"PE1":10,"PE2":0,"PE3":0,"PE4":0,"PE5":0,"PE6":0,"PE7":0,"PTC":10,"PW1":0,"PW2":10,"PW3":0,"PW4":0,"PW5":0,"PW6":10,"PW7":10,"SE1":10,"SE2":0,"SE3":0,"SE4":0,"SE5":0,"STC":10,"SW1":10,"SW2":0,"SW3":0,"SW4":0,"SW5":0,"SW6":0,"SW7":0,"SW8":0,"TE1":0,"TE10":0,"TE11":0,"TE12":0,"TE13":0,"TE14":0,"TE15":0,"TE16":0,"TE17":0,"TE18":0,"TE19":0,"TE2":0,"TE20":0,"TE21":0,"TE22":0,"TE22A":0,"TE23":0,"TE24":0,"TE25":0,"TE26":0,"TE27":0,"TE28":0,"TE29":10,"TE3":0,"TE30":0,"TE31":10,"TE32":0,"TE33":10,"TE34":10,"TE35":10,"TE4":0,"TE5":0,"TE6":0,"TE7":0,"TE8":0,"TE9":0}
 
-STATION_CODES = [
-    "NS1","NS2","NS3","NS4","NS5","NS7","NS8","NS9","NS10","NS11","NS12",
-    "NS13","NS14","NS15","NS16","NS17","NS18","NS19","NS20","NS21","NS22",
-    "NS23","NS24","NS25","NS26","NS27","NS28",
+STATION_CODES = {
+        "B": ["BP1","BP2","BP3","BP4","BP5","BP6","BP7","BP8","BP9","BP10","BP11",
+            "BP12","BP13"],
 
-    "EW1","EW2","EW3","EW4","EW5","EW6","EW7","EW8","EW9","EW10","EW11",
-    "EW12","EW13","EW14","EW15","EW16","EW17","EW18","EW19","EW20","EW21",
-    "EW22","EW23","EW24","EW25","EW26","EW27","EW28","EW29","EW30","EW31",
-    "EW32","EW33",
+        "NS": ["NS1","NS2","NS3","NS4","NS5","NS7","NS8","NS9","NS10","NS11","NS12",
+            "NS13","NS14","NS15","NS16","NS17","NS18","NS19","NS20","NS21","NS22",
+            "NS23","NS24","NS25","NS26","NS27","NS28"],
 
-    "CG", "CG1","CG2",
+        "NE": ["NE1","NE3","NE4","NE5","NE6","NE7","NE8","NE9","NE10","NE11","NE12",
+            "NE13","NE14","NE15","NE16","NE17","NE18"],
 
-    "NE1","NE3","NE4","NE5","NE6","NE7","NE8","NE9","NE10","NE11","NE12",
-    "NE13","NE14","NE15","NE16","NE17","NE18",
+        "E": ["EW1","EW2","EW3","EW4","EW5","EW6","EW7","EW8","EW9","EW10","EW11",
+            "EW12","EW13","EW14","EW15","EW16","EW17","EW18","EW19","EW20","EW21",
+            "EW22","EW23","EW24","EW25","EW26","EW27","EW28","EW29","EW30","EW31",
+            "EW32","EW33"],
 
-    "CC1","CC2","CC3","CC4","CC5","CC6","CC7","CC8","CC9","CC10","CC11",
-    "CC12","CC13","CC14","CC15","CC16","CC17","CC19","CC20","CC21","CC22",
-    "CC23","CC24","CC25","CC26","CC27","CC28","CC29",
+        "CE": ["CE1","CE2", "CC4", "CC5","CC6","CC7","CC8","CC9","CC10","CC11",
+            "CC12","CC13","CC14","CC15","CC16","CC17","CC19","CC20","CC21","CC22",
+            "CC23","CC24","CC25","CC26","CC27","CC28","CC29"],
+        
+        "CC": ["CC1", "CC2", "CC3", "CC4" "CC5","CC6","CC7","CC8","CC9","CC10","CC11",
+            "CC12","CC13","CC14","CC15","CC16","CC17","CC19","CC20","CC21","CC22",
+            "CC23","CC24","CC25","CC26","CC27","CC28","CC29"],
 
-    "CE1","CE2",
+        "CG": ["CG2", "CG1", "CG", "EW5","EW6","EW7","EW8","EW9","EW10","EW11",
+            "EW12","EW13","EW14","EW15","EW16","EW17","EW18","EW19","EW20","EW21",
+            "EW22","EW23","EW24","EW25","EW26","EW27","EW28","EW29","EW30","EW31",
+            "EW32","EW33"],
 
-    "DT1","DT2","DT3","DT4","DT5","DT6","DT7","DT8","DT9","DT10","DT11",
-    "DT12","DT13","DT14","DT15","DT16","DT17","DT18","DT19","DT20","DT21",
-    "DT22","DT23","DT24","DT25","DT26","DT27","DT28","DT29","DT30","DT31",
-    "DT32","DT33","DT34","DT35",
+        "D": ["DT1","DT2","DT3","DT4","DT5","DT6","DT7","DT8","DT9","DT10","DT11",
+            "DT12","DT13","DT14","DT15","DT16","DT17","DT18","DT19","DT20","DT21",
+            "DT22","DT23","DT24","DT25","DT26","DT27","DT28","DT29","DT30","DT31",
+            "DT32","DT33","DT34","DT35"],
 
-    "BP1","BP2","BP3","BP4","BP5","BP6","BP7","BP8","BP9","BP10","BP11",
-    "BP12","BP13",
+        "S": ["SE1","SE2","SE3","SE4","SE5",
+            "STC",
+            "SW1","SW2","SW3","SW4","SW5","SW6","SW7","SW8"],
 
-    "STC",
+        "P": ["PE1","PE2","PE3","PE4","PE5","PE6","PE7",
+            "PTC",
+            "PW1","PW2","PW3","PW4","PW5","PW6","PW7"],
 
-    "SE1","SE2","SE3","SE4","SE5",
-    "SW1","SW2","SW3","SW4","SW5","SW6","SW7","SW8",
-
-    "PTC",
-
-    "PE1","PE2","PE3","PE4","PE5","PE6","PE7",
-    "PW1","PW2","PW3","PW4","PW5","PW6","PW7",
-
-    "TE1","TE2","TE3","TE4","TE5","TE6","TE7","TE8","TE9","TE11","TE12",
-    "TE13","TE14","TE15","TE16","TE17","TE18","TE19","TE20","TE22","TE23",
-    "TE24","TE25","TE26","TE27","TE28","TE29"
-]
-STATION_CODES.sort()
-
-
+        "T": ["TE1","TE2","TE3","TE4","TE5","TE6","TE7","TE8","TE9","TE11","TE12",
+            "TE13","TE14","TE15","TE16","TE17","TE18","TE19","TE20","TE22","TE23",
+            "TE24","TE25","TE26","TE27","TE28","TE29"]
+}
 
 class Node:
     # station_code: Station ID of the station i.e., DT29
@@ -167,7 +167,7 @@ def bfs_check(current_station_code, data):
         if remaining_hop_count <= 0:
             continue
 
-        adjacent_stations = AL[current_station_code]
+        adjacent_stations = AL[station_code]
         for station in adjacent_stations:
             next_station_code = station.station_code
 
@@ -179,7 +179,7 @@ def bfs_check(current_station_code, data):
         return None
 
     result.sort()
-    return [result[0], result[-1]]
+    return result
 
 def get_range_of_breakdowns(station_data, report_data):
     generate_graph(station_data)
@@ -193,26 +193,9 @@ def get_range_of_breakdowns(station_data, report_data):
             print(f"Station {station_code} reported")
             delay_range = bfs_check(station_code, report_data)
 
-            if delay_range:
+            if delay_range and delay_range not in ranges:
+                print(delay_range)
                 ranges.append(delay_range)
 
-    print(ranges)
-    return report_data
-
-    # TODO: Merge Intervals
-    print(AL["CC4"])
-    ranges.sort()
-
-    result = []
-    result.append(ranges[0])
-    for i in range(1, len(ranges)):
-        last = result[-1]
-        curr = ranges[i]
-
-        if curr[0] <= last[1]:
-            last[1] = max(last[1], curr[1])
-        else:
-            result.append(curr)
-
-    return result
+    return ranges
 
