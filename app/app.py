@@ -95,9 +95,9 @@ def report_get():
         for station in no_of_reports.keys():
             #print(station)
             station_reports = no_of_reports[station]
-            if station_reports[0] > THRESHOLD:
+            if station_reports[0] >= THRESHOLD:
                 res[station] = 2
-            elif station_reports[0] + station_reports[1] > THRESHOLD:
+            elif station_reports[0] + station_reports[1] >= THRESHOLD:
                 res[station] = 1
             else:
                 res[station] = 0
