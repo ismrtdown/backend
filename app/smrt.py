@@ -118,11 +118,13 @@ def generate_graph(data):
 # Go up and down +-3 stations to check if any other station is also delayed
 # Rinse and repeat as needed
 # Report the final range
-def bfs_check(station, data):
+def bfs_check(station, data, visited):
+    if station.station_code in visited:
+        return []
+
     queue = deque()
     queue.append((station, MARGIN)) # Tuple of (station node, remaining_hop_count)
 
-    visited = []
     visited.append(station.station_code)
 
     cur_line = None
@@ -201,11 +203,12 @@ def get_range_of_breakdowns(station_data, report_data):
     report_data = FAKE_REPORT_DATA
 
     ranges = []
+    visited = []
 
     for station_code, num_reports in report_data.items():
         if num_reports >= OFFICIALLY_DELAYED_THRESHOLD:
             station = CODE_TO_NODE_MAP[station_code]
-            delay_range = bfs_check(station, report_data)
+            delay_range = bfs_check(station, report_data, visited)
 
             for found_range in delay_range:
                 if found_range not in ranges:
