@@ -180,15 +180,21 @@ def clean_range(ranges):
 
         if both_connections_in:
             base_range = [station for station in raw_range if station not in connection_branches[0] and station not in connection_branches[1]]
+            branch_1_range = [station for station in raw_range if station in connection_branches[0]]
+            branch_2_range = [station for station in raw_range if station in connection_branches[1]]
 
+            base_range.sort()
+
+            """
             branch_1_range = base_range + connection_branches[0]
             branch_2_range = base_range + connection_branches[1]
 
             branch_1_range.sort()
             branch_2_range.sort()
+            """
 
-            cleaned.append([branch_1_range[0], branch_1_range[-1]])
-            cleaned.append([branch_2_range[0], branch_2_range[-1]])
+            cleaned.append([base_range[-1], branch_1_range[-1]])
+            cleaned.append([base_range[-1], branch_2_range[-1]])
 
         else:
             # NOTE: If no change necessary, its already sorted from earlier due to dup check
