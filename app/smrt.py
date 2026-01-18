@@ -200,7 +200,7 @@ def get_range_of_breakdowns(station_data, report_data):
     generate_graph(station_data)
 
     # HACK: No actual reports yet
-    report_data = FAKE_REPORT_DATA
+    # report_data = FAKE_REPORT_DATA
 
     ranges = []
     visited = []
