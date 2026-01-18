@@ -37,3 +37,4 @@ def id_to_stations():
                     station_names[station].append(line["code"])
         with open("id_station.json", "w") as ff:
             ff.write(json.dumps(station_names))
+            

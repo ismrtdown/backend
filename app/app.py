@@ -109,6 +109,26 @@ def report_get():
         print(e)
         return error, 500
 
+def report_get_num():
+    try:
+        time_now = datetime.now(tz= timezone.utc)
+        start = time_now - timedelta(minutes=30)
+        response = supabase.table("down_reports").select("station_code", "created_at").gte("created_at",start.isoformat()).execute()
+        reports = response.data
+        no_of_reports = {}
+        for x in  mrt_station_codes:
+            no_of_reports[x] = 0
+        for report in reports:
+            no_of_reports[report["station_code"]] += 1
+        res = {}
+        for station in no_of_reports.keys():
+            #print(station)
+            res[station] = no_of_reports[station]
+        return res
+    except APIError as e:
+        return None
+
+
 @app.route("/reportno", methods = ["GET"])
 async def reportno():
     global cache, prev_record
@@ -139,4 +159,3 @@ def root():
 def range_delayed():
     report_data = report_get()
     return get_range_of_breakdowns(stations, report_data)
-
