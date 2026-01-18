@@ -85,7 +85,7 @@ def report_get():
         for x in  mrt_station_codes:
             no_of_reports[x] = [0, 0]
         for report in reports:
-            if (time_now - datetime.fromisoformat(report["created_at"])).total_seconds() / 60 <= 5:
+            if (time_now - datetime.fromisoformat(report["created_at"])).total_seconds() / 60 <= 10:
                 # red
                 no_of_reports[report["station_code"]][0] += 1
             else:
@@ -113,7 +113,7 @@ def report_get():
 async def reportno():
     global cache, prev_record
     now = datetime.now(tz = timezone.utc)
-    if (now - prev_record).total_seconds() / 60 > 5:
+    if (now - prev_record).total_seconds() / 60 > 1:
         cache = await get_graph_data()
         if cache is None:
             error = {
