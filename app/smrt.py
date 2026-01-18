@@ -15,10 +15,10 @@ BRANCHES = {
         "CE": [["CC1", "CC2", "CC3"], ["CE1", "CE2"]],
         "CG": [["EW1", "EW2", "EW3"], ["CG1", "CG2"]]
 }
-#COMBINED_LINES = [["PTC", "PE"], ["PTC", "PW"], ["STC", "SE"], ["STC", "SW"]]
 
 class Node:
     # station_code: Station ID of the station i.e., DT29
+    # station_line: What line the station is on, i.e., DT
     # station_name: Station Name of the station
     def __init__(self, station_code, station_name, station_line):
         self.station_line = station_line
@@ -118,8 +118,6 @@ def generate_graph(data):
 # Go up and down +-3 stations to check if any other station is also delayed
 # Rinse and repeat as needed
 # Report the final range
-# O(N) where N is the number of stations on that line lol, coz just go to the end of the line worst case (WE GOT VISITED ARRAY)
-
 def bfs_check(station, data):
     queue = deque()
     queue.append((station, MARGIN)) # Tuple of (station node, remaining_hop_count)
@@ -138,25 +136,6 @@ def bfs_check(station, data):
             remaining_hop_count = MARGIN
             line = station.station_line
             main_range.append(station_code)
-
-            """
-            if not cur_line:
-                cur_line = line 
-
-            if line != cur_line:
-                if [line, cur_line] in COMBINED_LINES or [cur_line, line] in COMBINED_LINES:
-                    main_range.append(station_code)
-                    continue
-
-                if branched_range == None:
-                    branched_range = main_range[:]
-                
-                branched_range.append(station_code)
-
-            else:
-                main_range.append(station_code)
-                """
-
 
         if remaining_hop_count <= 0:
             continue
