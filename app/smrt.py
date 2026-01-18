@@ -185,11 +185,12 @@ def clean_range(ranges):
             branch_1_range.sort()
             branch_2_range.sort()
 
-            cleaned.append(branch_1_range)
-            cleaned.append(branch_2_range)
+            cleaned.append([branch_1_range[0], branch_1_range[-1]])
+            cleaned.append([branch_2_range[0], branch_2_range[-1]])
 
         else:
-            cleaned.append(raw_range)
+            # NOTE: If no change necessary, its already sorted from earlier due to dup check
+            cleaned.append([raw_range[0], raw_range[-1]]) 
 
     return cleaned
 
