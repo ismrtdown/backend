@@ -208,6 +208,7 @@ def get_range_of_breakdowns(station_data, report_data):
     for station_code, num_reports in report_data.items():
         if num_reports >= OFFICIALLY_DELAYED_THRESHOLD:
             station = CODE_TO_NODE_MAP[station_code]
+            print(f"{station} reported")
             delay_range = bfs_check(station, report_data, visited)
 
             for found_range in delay_range:

@@ -157,5 +157,6 @@ def root():
 
 @app.get("/range-delayed")
 def range_delayed():
-    report_data = report_get()[0]
+    report_data = report_get_num()
+    print(report_data)
     return get_range_of_breakdowns(stations, report_data)
